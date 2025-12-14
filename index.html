@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mood Explorer </title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="background">
+  <div class="bg-layer" id="bg1"></div>
+  <div class="bg-layer" id="bg2"></div>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <button id="toggleSidebar">☰</button>
+  <h2>Emojis</h2>
+  <div class="emoji-list">
+    <div class="sidebar-emoji" data-mood="happy">😄</div>
+    <div class="sidebar-emoji" data-mood="sad">😢</div>
+    <div class="sidebar-emoji" data-mood="love">❤️</div>
+    <div class="sidebar-emoji" data-mood="angry">😡</div>
+    <div class="sidebar-emoji" data-mood="sleepy">😴</div>
+    <div class="sidebar-emoji" data-mood="excited">🤩</div>
+    <div class="sidebar-emoji" data-mood="chill">😎</div>
+    <div class="sidebar-emoji" data-mood="surprised">😲</div>
+  </div>
+</div>
+
+<div class="main">
+  <h1 class="title">Explore Your Mood 🌈</h1>
+  <div class="container" id="moodContainer"></div>
+</div>
+
+<div id="moodScreen" class="mood-screen hidden">
+  <button class="close-btn" id="closeBtn">✖</button>
+  <div class="mood-content">
+    <div class="particles-container" id="particles"></div>
+    <span id="bigEmoji">😊</span>
+    <h1 id="moodText">You feel...</h1>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+/* General */
+body{margin:0;padding:0;font-family:"Poppins",sans-serif;overflow:hidden;height:100vh;display:flex;}
+#background{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;}
+.bg-layer{position:absolute;top:0;left:0;width:100%;height:100%;background-size:cover;background-position:center;transition:opacity 1.2s ease, transform 10s linear;}
+.bg-layer.visible{opacity:1; transform: scale(1.05);}
+#toggleSidebar{position:fixed;top:20px;left:20px;background:transparent;border:none;font-size:30px;cursor:pointer;z-index:20;color:#000;transition:0.3s;}
+#toggleSidebar:hover{transform:scale(1.2);}
+
+/* Sidebar */
+.sidebar{
+    width:150px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+    z-index:10;
+    position:fixed;
+    top:0;
+    left:0;
+    height:100%;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    transform: translateX(0);
+    overflow-y:auto;
+}
+.sidebar.hidden{
+    transform:translateX(-160px);
+    opacity:0;
+    pointer-events:none;
+}
+.sidebar h2{color:#000;font-size:18px;text-align:center;}
+.emoji-list{display:flex;flex-direction:column;gap:15px;}
+.sidebar-emoji{font-size:30px;cursor:pointer;transition: transform 0.3s, color 0.3s, text-shadow 0.3s;}
+.sidebar-emoji:hover{transform:scale(1.4);color:#ffdd00;text-shadow:0 0 15px #ffdd00;}
+
+/* Main */
+.main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:1;}
+.title{font-size:42px;color:black;margin-bottom:20px;text-shadow:2px 2px 8px #fff;animation:fadeIn 1.5s ease;}
+@keyframes fadeIn{0%{opacity:0;transform:translateY(-20px);}100%{opacity:1;transform:translateY(0);}}
+.container{display:flex;flex-wrap:wrap;gap:30px;justify-content:center;}
+.card{width:160px;height:200px;perspective:1000px;animation:cardEntry 1s ease;}
+@keyframes cardEntry{0%{opacity:0;transform:translateY(50px);}100%{opacity:1;transform:translateY(0);}}
+.card-inner{width:100%;height:100%;background: rgba(255,255,255,0.2);backdrop-filter: blur(15px);border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:pointer;border:1px solid rgba(255,255,255,0.3);transition:0.6s;transform-style:preserve-3d;}
+.card:hover .card-inner{transform:rotateY(180deg);}
+.card-front, .card-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.card-back{transform:rotateY(180deg);font-size:16px;text-align:center;color:#fff;}
+.emoji{font-size:55px;}
+.card-front h3{color:#000;text-align:center;text-shadow:1px 1px 5px #fff;}
+
+/* Mood screen */
+.mood-screen{position:fixed;top:0;left:0;width:100%;height:100%;background: rgba(255,255,255,0.85);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:0.5s ease;z-index:15;}
+.hidden{opacity:0;pointer-events:none;}
+.mood-content{position:relative;display:flex;flex-direction:column;align-items:center;}
+.mood-content span{font-size:150px;position:relative;z-index:2;text-shadow:2px 2px 10px #000;}
+.particles-container{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;}
+.mood-content h1{margin-top:20px;color:#000;font-size:45px;text-shadow:2px 2px 10px #fff;}
+.close-btn{position:absolute;top:30px;right:40px;background:transparent;color:black;font-size:35px;border:none;cursor:pointer;transition:0.3s;}
+.close-btn:hover{transform:rotate(90deg);}
